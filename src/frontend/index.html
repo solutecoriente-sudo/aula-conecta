@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Aula Conecta — Repositorio</title>
+  <style>
+    body { font-family: system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell; margin: 2rem; }
+    header { display:flex; align-items:center; justify-content:space-between; margin-bottom:1rem; }
+    .badge { padding: .2rem .5rem; border: 1px solid #ccc; border-radius: 6px; font-size: .8rem;}
+    table { width:100%; border-collapse: collapse; }
+    th, td { border-bottom: 1px solid #e5e7eb; padding: .6rem; text-align:left; }
+    th { background: #f8fafc; }
+    .filters { display:flex; gap: .5rem; margin: 1rem 0; }
+    input, select { padding: .5rem; }
+    .muted { color:#6b7280; font-size:.9rem; }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Aula Conecta <span class="badge">Demo</span></h1>
+    <div class="muted">Institución: San Martín · Historia · 3ro</div>
+  </header>
+
+  <section class="filters">
+    <input id="q" placeholder="Buscar por título o palabra clave" />
+    <select id="grado">
+      <option value="">Grado (todos)</option>
+      <option>3ro</option>
+    </select>
+    <select id="tipo">
+      <option value="">Tipo (todos)</option>
+      <option>PDF</option><option>DOCX</option><option>PPTX</option>
+      <option>JPG</option><option>PNG</option><option>SVG</option>
+      <option>MP4</option>
+    </select>
+    <button id="btn">Filtrar</button>
+  </section>
+
+  <table>
+    <thead>
+      <tr>
+        <th>Título</th><th>Tipo</th><th>Autor</th><th>Fecha</th><th>Asignatura</th><th>Grado</th><th>Tema</th>
+      </tr>
+    </thead>
+    <tbody id="rows"></tbody>
+  </table>
+
+  <script>
+    async function load() { 
+      const res = await fetch("../data/resources.json");
+      const data = await res.json();
+      window._data = data;
+      render(data);
+    }
+    function render(list){
+      const q = document.getElementById('q').value.toLowerCase();
+      const grado = document.getElementById('grado').value;
+      const tipo = document.getElementById('tipo').value;
+      const rows = document.getElementById('rows');
+      rows.innerHTML = '';
+      list.filter(x => {
+        const hayQ = !q || x.titulo.toLowerCase().includes(q) || (x.palabras_clave||[]).join(' ').toLowerCase().includes(q);
+        const hayG = !grado || x.grado === grado;
+        const hayT = !tipo || x.tipo === tipo;
+        return hayQ && hayG && hayT;
+      }).forEach(x => {
+        const tr = document.createElement('tr');
+        tr.innerHTML = `
+          <td>${x.titulo}</td>
+          <td>${x.tipo}</td>
+          <td>${x.autor}</td>
+          <td>${x.fecha}</td>
+          <td>${x.asignatura}</td>
+          <td>${x.grado}</td>
+          <td>${x.tema}</td>
+        `;
+        rows.appendChild(tr);
+      });
+    }
+    document.getElementById('btn').addEventListener('click', () => render(window._data||[]));
+    load();
+  </script>
+</body>
+</html>
