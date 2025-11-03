@@ -1,1 +1,52 @@
-
+[
+  {
+    "titulo": "Imperio_Romano_linea_tiempo",
+    "autor": "Prof. López",
+    "fecha": "2025-03-12",
+    "tipo": "PDF",
+    "asignatura": "Historia",
+    "grado": "3ro",
+    "tema": "Imperio Romano",
+    "licencia": "CC BY-NC 4.0",
+    "idioma": "es",
+    "palabras_clave": [
+      "Roma",
+      "Historia",
+      "Línea de tiempo"
+    ],
+    "descripcion": "Línea de tiempo del Imperio Romano con hitos principales."
+  },
+  {
+    "titulo": "Mapa_Europa_IMP",
+    "autor": "Prof. López",
+    "fecha": "2025-03-12",
+    "tipo": "JPG",
+    "asignatura": "Historia",
+    "grado": "3ro",
+    "tema": "Imperio Romano",
+    "licencia": "CC BY-NC 4.0",
+    "idioma": "es",
+    "palabras_clave": [
+      "Mapa",
+      "Europa",
+      "Imperio Romano"
+    ],
+    "descripcion": "Mapa base para ubicar provincias romanas."
+  },
+  {
+    "titulo": "Documental_ImperioRomano",
+    "autor": "Biblioteca",
+    "fecha": "2025-02-05",
+    "tipo": "MP4",
+    "asignatura": "Historia",
+    "grado": "3ro",
+    "tema": "Imperio Romano",
+    "licencia": "Uso educativo",
+    "idioma": "es",
+    "palabras_clave": [
+      "Documental",
+      "Roma"
+    ],
+    "descripcion": "Documental introductorio para clase."
+  }
+]

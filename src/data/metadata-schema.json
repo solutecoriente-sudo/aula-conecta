@@ -1,1 +1,67 @@
-
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "EsquemaMetadatosRecurso",
+  "type": "object",
+  "required": [
+    "titulo",
+    "autor",
+    "tipo",
+    "asignatura",
+    "grado",
+    "tema"
+  ],
+  "properties": {
+    "titulo": {
+      "type": "string"
+    },
+    "autor": {
+      "type": "string"
+    },
+    "fecha": {
+      "type": "string",
+      "format": "date"
+    },
+    "palabras_clave": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "licencia": {
+      "type": "string"
+    },
+    "idioma": {
+      "type": "string",
+      "default": "es"
+    },
+    "grado": {
+      "type": "string"
+    },
+    "asignatura": {
+      "type": "string"
+    },
+    "tema": {
+      "type": "string"
+    },
+    "tipo": {
+      "type": "string",
+      "enum": [
+        "PDF",
+        "DOCX",
+        "PPTX",
+        "JPG",
+        "PNG",
+        "SVG",
+        "MP4"
+      ]
+    },
+    "descripcion": {
+      "type": "string",
+      "maxLength": 1000
+    },
+    "tamano_bytes": {
+      "type": "integer",
+      "minimum": 0
+    }
+  }
+}
