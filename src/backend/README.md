@@ -1,1 +1,1 @@
-
+Espacio reservado para backend futuro (FastAPI/Node).
