@@ -1,1 +1,1 @@
-
+Coloca aquí recursos de ejemplo o materiales reales según permisos.
