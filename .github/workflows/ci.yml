@@ -1,0 +1,13 @@
+name: build-and-lint
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+jobs:
+  static-checks:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Validate JSON
+        run: jq . src/data/resources.json >/dev/null 2>&1 || (echo "resources.json inválido" && exit 1)
