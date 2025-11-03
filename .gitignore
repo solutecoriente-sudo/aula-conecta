@@ -1,0 +1,30 @@
+
+# SO / IDE
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
+*.code-workspace
+
+# Node
+node_modules/
+npm-debug.log*
+yarn.lock
+pnpm-lock.yaml
+dist/
+
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+.env
+
+# Build artefacts
+*.zip
+*.tar
+*.tar.gz
+
+# OS / misc
+.swp
+.swo
+*.log
